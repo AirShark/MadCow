@@ -80,7 +80,10 @@ namespace Bnet.Patcher
                             Console.WriteLine("battle.net.dll address: 0x{0:X8}", baseAddr.ToInt32());
                             var prevByte = ReadByte(hWnd, JMPAddr);
                             if (prevByte != 0x75)
-                                throw new Exception(string.Format("File already patched or unknown battle.net.dll version. 0x{0:X2} != 0x75", prevByte));
+                            {
+                                running = true;
+                                Console.WriteLine("File already patched or unknown battle.net.dll version.");                              
+                            }
                             WriteProcessMemory(hWnd, new IntPtr(JMPAddr), JMP, 1, out BytesWritten);
                             Console.WriteLine("After write: 0x{0:X2}", ReadByte(hWnd, JMPAddr));
 
