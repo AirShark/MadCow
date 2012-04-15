@@ -110,6 +110,8 @@ namespace MadCow
         #region ValidateRepository
         private void Validate_Repository_Click(object sender, EventArgs e)
         {
+            ValidateRepoButton.Enabled = false;
+            UpdatesTab.Cursor = Cursors.WaitCursor;
             ValidateRepository.RunWorkerAsync();
         }
 
@@ -145,6 +147,8 @@ namespace MadCow
                         EnableAutoUpdateBox.Enabled = false;      //functions disabled!.
                         UpdateMooegeButton.Enabled = false;
                         Console.WriteLine("Please try a different Repository.");
+                        UpdatesTab.Cursor = Cursors.Hand;
+                        ValidateRepoButton.Enabled = true;
                     }));
                 }
 
@@ -196,6 +200,8 @@ namespace MadCow
                         EnableAutoUpdateBox.Enabled = false;      //functions disabled!.
                         UpdateMooegeButton.Enabled = false;
                         Console.WriteLine("Internet Problems.");
+                        UpdatesTab.Cursor = Cursors.Hand;
+                        ValidateRepoButton.Enabled = true;
                     }));
                 }
 
@@ -210,6 +216,8 @@ namespace MadCow
                         EnableAutoUpdateBox.Enabled = false;      //functions disabled!.
                         UpdateMooegeButton.Enabled = false;
                         Console.WriteLine("Please try a different Repository.");
+                        UpdatesTab.Cursor = Cursors.Hand;
+                        ValidateRepoButton.Enabled = true;
                     }));
                 }
                 else
@@ -233,8 +241,11 @@ namespace MadCow
                         RepositoryHintLabel.Visible = false;
                         BranchComboBox.Visible = true;
                         BranchSelectionLabel.Visible = true;
+                        UpdatesTab.Cursor = Cursors.Hand;
+                        ValidateRepoButton.Enabled = true;
                     }));
                 }
+                
             }
             catch (Exception Ex)
             {
