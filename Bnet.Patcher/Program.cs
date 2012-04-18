@@ -28,7 +28,11 @@ namespace Bnet.Patcher
         #endregion
 
         #region Build 0.10.0.9183.BETA
-        static Int32 offset = 0x000B5505;
+        //static Int32 offset = 0x000B5505;
+        #endregion
+
+        #region Build 0.11.0.9327.BETA
+        static Int32 offset = 0x000B5605;
         #endregion
 
         static void Main(string[] args)
