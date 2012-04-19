@@ -33,37 +33,49 @@ namespace MadCow
 
         public static void MpqTransfer()
         {
-            //Takes Diablo Path from Ini, which gets it from finding diablo3.exe 
-            if (File.Exists(Program.madcowINI))
+            try
             {
-                IConfigSource source = new IniConfigSource(Program.madcowINI);
-                string Src = source.Configs["DiabloPath"].Get("MPQpath");
-                String Dst = source.Configs["DiabloPath"].Get("MPQDest");
+                //Takes Diablo Path from Ini, which gets it from finding diablo3.exe 
+                if (File.Exists(Program.madcowINI))
+                {
+                    IConfigSource source = new IniConfigSource(Program.madcowINI);
+                    String Src = source.Configs["DiabloPath"].Get("MPQpath");
+                    String Dst = source.Configs["DiabloPath"].Get("MPQDest");
 
-                if (ProcessFinder.FindProcess("Diablo") == true)
-                {
-                    ProcessFinder.KillProcess("Diablo");
-                    Console.WriteLine("Killed Diablo3 Process");
+                    if (ProcessFinder.FindProcess("Diablo") == true)
+                    {
+                        ProcessFinder.KillProcess("Diablo");
+                        Console.WriteLine("Killed Diablo3 Process");
+                    }
+                    if (Directory.Exists(Dst) == false)
+                    {
+                        Console.WriteLine("Creating MPQ folder...");
+                        Directory.CreateDirectory(Dst);
+                        Console.WriteLine("Created MPQ folder over:" + Dst);
+                    }
+                    //Proceeds to copy data
+                    Console.WriteLine("Copying MPQ files...");
+                    Form1.GlobalAccess.Invoke(new Action(() =>
+                    {
+                        Form1.GlobalAccess.CopyMPQButton.Enabled = false;
+                        Form1.GlobalAccess.PlayDiabloButton.Enabled = false;
+                    }));
+                    copyDirectory(Src, Dst);
+                    //When all the files has been copied then:
+                    Console.WriteLine("Copying MPQ files completed.");
+                    Form1.GlobalAccess.Invoke(new Action(() =>
+                    {
+                        Form1.GlobalAccess.CopyMPQButton.Enabled = true;
+                        Form1.GlobalAccess.PlayDiabloButton.Enabled = true; //We enable Play D3 button again.
+                    }));
                 }
-                if (Directory.Exists(Dst) == false)
-                {
-                    Console.WriteLine("Creating MPQ folder...");
-                    Directory.CreateDirectory(Dst);
-                    Console.WriteLine("Created MPQ folder over:" + Dst);
-                }
-                //Proceeds to copy data
-                Console.WriteLine("Copying MPQ files to MadCow Folders...");
-                copyDirectory(Src, Dst);
-                //When all the files has been copied then:
-                Console.WriteLine("Copying MPQ files to MadCow Folders has completed.");
-                Form1.GlobalAccess.Invoke(new Action(() =>
-                {
-                    Form1.GlobalAccess.CopyMPQButton.Enabled = true;
-                    Form1.GlobalAccess.PlayDiabloButton.Enabled = true; //We enable Play D3 button again.
-                }));
+                else
+                    Console.WriteLine("MadCow could not find your Diablo III Mpq Folder");
             }
-            else
-                Console.WriteLine("MadCow could not find your Diablo III Mpq Folder");
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private static void copyDirectory(String Src, String Dst)

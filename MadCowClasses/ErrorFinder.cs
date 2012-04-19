@@ -100,28 +100,5 @@ namespace MadCow
                 }
             }
         }
-
-        public static Boolean hasMpqs()
-        {
-            //Here we compare onle base mpqs from Diablo Client & our destinations MPQ Path.
-            try
-            {
-                IConfigSource source = new IniConfigSource(Program.madcowINI);
-                String Destination = Path.Combine(source.Configs["DiabloPath"].Get("MPQDest"), "base");
-                string[] files2 = Directory.GetFiles(Destination, "*.mpq", SearchOption.TopDirectoryOnly);
-
-                if (files2.Length < RetrieveMpqList.mpqList.Count - 1) //-1 For people using previous supported version.
-                {
-                    return false;
-                }
-                else
-                    return true;
-            }
-            catch
-            {
-                Console.WriteLine("[ERROR] Could not get mpq count. (ErrorFinder.cs)" + "\nPlease report this error in the forum.");
-                return false;
-            }
-        }
     }
 }

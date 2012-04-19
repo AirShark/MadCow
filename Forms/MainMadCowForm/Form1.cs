@@ -408,25 +408,8 @@ namespace MadCow
                 LastPlayedRepoReminderLabel.Visible = false;
             }
 
-            if (ErrorFinder.hasMpqs() == true) //We check for MPQ files count before allowing the user to proceed to play.
-            {
-                System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(ThreadProc));
-                t.Start();
-            }
-            else if (Diablo3UserPathSelection != null && ErrorFinder.hasMpqs() == false)
-            {
-                var ErrorAnswer = MessageBox.Show("You haven't copied MPQ files." + "\nWould you like MadCow to fix this for you?", "Fatal Error!",
-                            MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
-
-                if (ErrorAnswer == DialogResult.Yes)
-                {
-                    MPQprocedure.StartCopyProcedure();
-                    PlayDiabloButton.Enabled = false;
-                    CopyMPQButton.Enabled = false;
-                }
-            }
-            else
-                Console.WriteLine("[FATAL] You are missing MPQ files!" + "\nPlease use CopyMpq button or copy Diablo3 MPQ's folder content into MadCow MPQ folder.");
+             System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(ThreadProc));
+             t.Start();
         }
 
         public void ThreadProc()
@@ -449,7 +432,7 @@ namespace MadCow
                 if (ErrorFinder.SearchLogs("Fatal") == true)
                 {
                     //We delete de Log file HERE. Nowhere else!.
-                    DeleteHelper.Delete(0);
+                    //DeleteHelper.Delete(0);
                     if (ErrorFinder.errorFileName.Contains("d3-update-base-")) //This will handle corrupted mpqs and missing mpq files.
                     {
                         var ErrorAnswer = MessageBox.Show(@"Missing or Corrupted file [" + ErrorFinder.errorFileName + @"]" + "\nWould you like MadCow to fix this for you?", "Found corrupted file!",
@@ -508,16 +491,6 @@ namespace MadCow
                         Console.WriteLine(ErrorFinder.errorFileName);
                     }
                 }
-                else
-                {
-                    //nothing
-                }
-            }
-            else
-            {
-                //Nothing!
-                //If the user closes Repo selection and we already went through fixing the MPQ, then Mooege.log will not exist and
-                //Madcow would crash when trying to read mooege.log.
             }
         }
         #endregion
@@ -2373,6 +2346,29 @@ namespace MadCow
         private void DownloadNetLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("http://www.microsoft.com/download/en/details.aspx?id=17851");
+        }
+
+        private void SelectRepoChngLogComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //We first parse the repo name selected by the user.
+            selectedRepo = this.SelectRepoChngLogComboBox.Text;
+
+            //We search for that repo URL over RepoList.txt
+            StreamReader sr = new StreamReader(Program.programPath + @"\Tools\RepoList.txt");
+            string line = sr.ReadLine();
+
+            while (line != null)
+            {
+                if (System.Text.RegularExpressions.Regex.IsMatch(line, selectedRepo))
+                {
+                    //Pass the whole URL to selectedRepo string that we will use to create the new Uri.
+                    selectedRepo = line;
+                }
+                line = sr.ReadLine();
+            }
+            sr.Close();
+            //Proceed to download the commit file and parse.
+            ChangelogDownloader.RunWorkerAsync();
         }
     }
 }

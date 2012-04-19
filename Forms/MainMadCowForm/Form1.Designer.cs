@@ -38,6 +38,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.RemoteServerLaunchButton = new System.Windows.Forms.Button();
             this.RemoteServerTab = new System.Windows.Forms.TabPage();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.RemoteServerTip = new System.Windows.Forms.Label();
             this.RemoteServerGrpBox = new System.Windows.Forms.GroupBox();
             this.RemoteServerTip2 = new System.Windows.Forms.Label();
@@ -47,6 +48,7 @@
             this.remoteHostTxtBox = new System.Windows.Forms.TextBox();
             this.MadCowCreditsLabel = new System.Windows.Forms.Label();
             this.ServerControlTab = new System.Windows.Forms.TabPage();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.TickGameServerPort = new System.Windows.Forms.PictureBox();
             this.TickBnetServerPort = new System.Windows.Forms.PictureBox();
@@ -75,30 +77,39 @@
             this.BnetServerPort = new System.Windows.Forms.TextBox();
             this.BnetServerIp = new System.Windows.Forms.TextBox();
             this.UpdatesTab = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.generalProgressBar = new System.Windows.Forms.ProgressBar();
+            this.DownloadRepoBar = new System.Windows.Forms.ProgressBar();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.Diablo3UserPathSelection = new System.Windows.Forms.TextBox();
             this.FindDiabloButton = new System.Windows.Forms.Button();
+            this.CopyMPQButton = new System.Windows.Forms.Button();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.CopyMPQButton = new System.Windows.Forms.Button();
             this.LastPlayedRepoReminderLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.BranchSelectionLabel = new System.Windows.Forms.Label();
             this.BranchComboBox = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.AutoUpdateTimerLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.RepositoryHintLabel = new System.Windows.Forms.Label();
             this.UpdateMooegeButton = new System.Windows.Forms.Button();
             this.ValidateRepoButton = new System.Windows.Forms.Button();
-            this.AutoUpdateTimerLabel = new System.Windows.Forms.Label();
-            this.DownloadRepoBar = new System.Windows.Forms.ProgressBar();
-            this.generalProgressBar = new System.Windows.Forms.ProgressBar();
+            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.Tabs = new System.Windows.Forms.TabControl();
+            this.ChaneglogTab = new System.Windows.Forms.TabPage();
+            this.SelectRepoChngLogComboBox = new System.Windows.Forms.ComboBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.ChangeLogTxtBox = new System.Windows.Forms.TextBox();
             this.MooegeTab = new System.Windows.Forms.TabPage();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.SettingsCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
@@ -106,6 +117,7 @@
             this.MPQDestTextBox = new System.Windows.Forms.TextBox();
             this.mpqDestinationDisableLabel = new System.Windows.Forms.Label();
             this.HelpTab = new System.Windows.Forms.TabPage();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.DownloadNetLabel = new System.Windows.Forms.LinkLabel();
             this.ProblemsCompilingLabel = new System.Windows.Forms.Label();
             this.AutoUpdateMadcowLabel = new System.Windows.Forms.Label();
@@ -130,11 +142,8 @@
             this.ResetMooegeReposLabel = new System.Windows.Forms.Label();
             this.ResetRepoFolder = new System.Windows.Forms.Button();
             this.ChainPicture = new System.Windows.Forms.PictureBox();
-            this.ChaneglogTab = new System.Windows.Forms.TabPage();
-            this.ChangeLogTxtBox = new System.Windows.Forms.TextBox();
-            this.SelectRepositoryChngLogLabel = new System.Windows.Forms.Label();
-            this.SelectRepoChngLogComboBox = new System.Windows.Forms.ComboBox();
             this.AboutTab = new System.Windows.Forms.TabPage();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.VersionLabel = new System.Windows.Forms.Label();
             this.DownloadSpeedTimer = new System.Windows.Forms.Timer(this.components);
@@ -148,18 +157,16 @@
             this.ChangelogDownloader = new System.ComponentModel.BackgroundWorker();
             this.MadCowTrayIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.MpqPathBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.ConsoleOutputTxtBox = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.SelectRepositoryChngLogLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.AutoUpdateValue)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.RemoteServerTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.RemoteServerGrpBox.SuspendLayout();
             this.ServerControlTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TickGameServerPort)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TickBnetServerPort)).BeginInit();
@@ -172,6 +179,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ErrorGameServerIp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorBnetServerIp)).BeginInit();
             this.UpdatesTab.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -182,17 +190,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Tabs.SuspendLayout();
+            this.ChaneglogTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.MooegeTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.HelpTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ChainPicture)).BeginInit();
-            this.ChaneglogTab.SuspendLayout();
             this.AboutTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.groupBox7.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // EnableAutoUpdateBox
@@ -242,9 +252,9 @@
             // 
             // LaunchServerButton
             // 
-            this.LaunchServerButton.Location = new System.Drawing.Point(6, 279);
+            this.LaunchServerButton.Location = new System.Drawing.Point(6, 290);
             this.LaunchServerButton.Name = "LaunchServerButton";
-            this.LaunchServerButton.Size = new System.Drawing.Size(327, 43);
+            this.LaunchServerButton.Size = new System.Drawing.Size(327, 60);
             this.LaunchServerButton.TabIndex = 9;
             this.LaunchServerButton.Text = "Launch Server Only";
             this.LaunchServerButton.UseVisualStyleBackColor = true;
@@ -279,16 +289,26 @@
             // RemoteServerTab
             // 
             this.RemoteServerTab.BackColor = System.Drawing.Color.White;
+            this.RemoteServerTab.Controls.Add(this.pictureBox10);
             this.RemoteServerTab.Controls.Add(this.RemoteServerTip);
             this.RemoteServerTab.Controls.Add(this.RemoteServerGrpBox);
             this.RemoteServerTab.Controls.Add(this.RemoteServerLaunchButton);
-            this.RemoteServerTab.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RemoteServerTab.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.RemoteServerTab.Location = new System.Drawing.Point(4, 22);
             this.RemoteServerTab.Name = "RemoteServerTab";
             this.RemoteServerTab.Padding = new System.Windows.Forms.Padding(3);
             this.RemoteServerTab.Size = new System.Drawing.Size(421, 445);
             this.RemoteServerTab.TabIndex = 3;
             this.RemoteServerTab.Text = "Remote Server";
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = global::MadCow.Properties.Resources.madcosofted;
+            this.pictureBox10.Location = new System.Drawing.Point(36, 7);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(349, 50);
+            this.pictureBox10.TabIndex = 21;
+            this.pictureBox10.TabStop = false;
             // 
             // RemoteServerTip
             // 
@@ -375,13 +395,22 @@
             this.ServerControlTab.BackColor = System.Drawing.Color.White;
             this.ServerControlTab.Controls.Add(this.pictureBox8);
             this.ServerControlTab.Controls.Add(this.groupBox5);
-            this.ServerControlTab.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ServerControlTab.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.ServerControlTab.Location = new System.Drawing.Point(4, 22);
             this.ServerControlTab.Name = "ServerControlTab";
             this.ServerControlTab.Padding = new System.Windows.Forms.Padding(3);
             this.ServerControlTab.Size = new System.Drawing.Size(421, 445);
             this.ServerControlTab.TabIndex = 2;
             this.ServerControlTab.Text = "Server Control";
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::MadCow.Properties.Resources.madcosofted;
+            this.pictureBox8.Location = new System.Drawing.Point(36, 7);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(349, 50);
+            this.pictureBox8.TabIndex = 21;
+            this.pictureBox8.TabStop = false;
             // 
             // groupBox5
             // 
@@ -414,7 +443,7 @@
             this.groupBox5.Controls.Add(this.BnetServerIp);
             this.groupBox5.Location = new System.Drawing.Point(41, 79);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(339, 325);
+            this.groupBox5.Size = new System.Drawing.Size(339, 356);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Server Configuration";
@@ -683,7 +712,7 @@
             this.UpdatesTab.Controls.Add(this.groupBox1);
             this.UpdatesTab.Controls.Add(this.PlayDiabloButton);
             this.UpdatesTab.Controls.Add(this.shapeContainer1);
-            this.UpdatesTab.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UpdatesTab.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.UpdatesTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpdatesTab.ForeColor = System.Drawing.SystemColors.ControlText;
             this.UpdatesTab.Location = new System.Drawing.Point(4, 22);
@@ -692,6 +721,35 @@
             this.UpdatesTab.Size = new System.Drawing.Size(421, 445);
             this.UpdatesTab.TabIndex = 1;
             this.UpdatesTab.Text = "Updates";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.generalProgressBar);
+            this.groupBox3.Controls.Add(this.DownloadRepoBar);
+            this.groupBox3.Location = new System.Drawing.Point(27, 310);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(190, 54);
+            this.groupBox3.TabIndex = 26;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Progress Bars";
+            // 
+            // generalProgressBar
+            // 
+            this.generalProgressBar.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.generalProgressBar.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.generalProgressBar.Location = new System.Drawing.Point(6, 36);
+            this.generalProgressBar.Name = "generalProgressBar";
+            this.generalProgressBar.Size = new System.Drawing.Size(179, 10);
+            this.generalProgressBar.Step = 25;
+            this.generalProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.generalProgressBar.TabIndex = 0;
+            // 
+            // DownloadRepoBar
+            // 
+            this.DownloadRepoBar.Location = new System.Drawing.Point(6, 20);
+            this.DownloadRepoBar.Name = "DownloadRepoBar";
+            this.DownloadRepoBar.Size = new System.Drawing.Size(179, 10);
+            this.DownloadRepoBar.TabIndex = 0;
             // 
             // pictureBox7
             // 
@@ -732,6 +790,17 @@
             this.FindDiabloButton.UseVisualStyleBackColor = true;
             this.FindDiabloButton.Click += new System.EventHandler(this.FindDiablo_Click);
             // 
+            // CopyMPQButton
+            // 
+            this.CopyMPQButton.Enabled = false;
+            this.CopyMPQButton.Location = new System.Drawing.Point(6, 53);
+            this.CopyMPQButton.Name = "CopyMPQButton";
+            this.CopyMPQButton.Size = new System.Drawing.Size(102, 29);
+            this.CopyMPQButton.TabIndex = 18;
+            this.CopyMPQButton.Text = "Copy MPQ\'s";
+            this.CopyMPQButton.UseVisualStyleBackColor = true;
+            this.CopyMPQButton.Click += new System.EventHandler(this.CopyMPQs_Click);
+            // 
             // pictureBox6
             // 
             this.pictureBox6.Image = global::MadCow.Properties.Resources.numero3;
@@ -767,17 +836,6 @@
             this.pictureBox3.Size = new System.Drawing.Size(349, 50);
             this.pictureBox3.TabIndex = 20;
             this.pictureBox3.TabStop = false;
-            // 
-            // CopyMPQButton
-            // 
-            this.CopyMPQButton.Enabled = false;
-            this.CopyMPQButton.Location = new System.Drawing.Point(6, 53);
-            this.CopyMPQButton.Name = "CopyMPQButton";
-            this.CopyMPQButton.Size = new System.Drawing.Size(102, 29);
-            this.CopyMPQButton.TabIndex = 18;
-            this.CopyMPQButton.Text = "Copy MPQ\'s";
-            this.CopyMPQButton.UseVisualStyleBackColor = true;
-            this.CopyMPQButton.Click += new System.EventHandler(this.CopyMPQs_Click);
             // 
             // LastPlayedRepoReminderLabel
             // 
@@ -853,6 +911,15 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Visible = false;
             // 
+            // AutoUpdateTimerLabel
+            // 
+            this.AutoUpdateTimerLabel.AutoSize = true;
+            this.AutoUpdateTimerLabel.Location = new System.Drawing.Point(9, 86);
+            this.AutoUpdateTimerLabel.Name = "AutoUpdateTimerLabel";
+            this.AutoUpdateTimerLabel.Size = new System.Drawing.Size(0, 13);
+            this.AutoUpdateTimerLabel.TabIndex = 14;
+            this.AutoUpdateTimerLabel.UseMnemonic = false;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
@@ -896,32 +963,33 @@
             this.ValidateRepoButton.UseVisualStyleBackColor = true;
             this.ValidateRepoButton.Click += new System.EventHandler(this.Validate_Repository_Click);
             // 
-            // AutoUpdateTimerLabel
+            // shapeContainer1
             // 
-            this.AutoUpdateTimerLabel.AutoSize = true;
-            this.AutoUpdateTimerLabel.Location = new System.Drawing.Point(9, 86);
-            this.AutoUpdateTimerLabel.Name = "AutoUpdateTimerLabel";
-            this.AutoUpdateTimerLabel.Size = new System.Drawing.Size(0, 13);
-            this.AutoUpdateTimerLabel.TabIndex = 14;
-            this.AutoUpdateTimerLabel.UseMnemonic = false;
+            this.shapeContainer1.Location = new System.Drawing.Point(3, 3);
+            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer1.Name = "shapeContainer1";
+            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape2,
+            this.rectangleShape1});
+            this.shapeContainer1.Size = new System.Drawing.Size(415, 439);
+            this.shapeContainer1.TabIndex = 25;
+            this.shapeContainer1.TabStop = false;
             // 
-            // DownloadRepoBar
+            // rectangleShape2
             // 
-            this.DownloadRepoBar.Location = new System.Drawing.Point(6, 20);
-            this.DownloadRepoBar.Name = "DownloadRepoBar";
-            this.DownloadRepoBar.Size = new System.Drawing.Size(179, 10);
-            this.DownloadRepoBar.TabIndex = 0;
+            this.rectangleShape2.BorderColor = System.Drawing.Color.SteelBlue;
+            this.rectangleShape2.CornerRadius = 5;
+            this.rectangleShape2.Location = new System.Drawing.Point(14, 302);
+            this.rectangleShape2.Name = "rectangleShape2";
+            this.rectangleShape2.Size = new System.Drawing.Size(383, 63);
             // 
-            // generalProgressBar
+            // rectangleShape1
             // 
-            this.generalProgressBar.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.generalProgressBar.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.generalProgressBar.Location = new System.Drawing.Point(6, 36);
-            this.generalProgressBar.Name = "generalProgressBar";
-            this.generalProgressBar.Size = new System.Drawing.Size(179, 10);
-            this.generalProgressBar.Step = 25;
-            this.generalProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.generalProgressBar.TabIndex = 0;
+            this.rectangleShape1.BorderColor = System.Drawing.Color.Orange;
+            this.rectangleShape1.CornerRadius = 5;
+            this.rectangleShape1.Location = new System.Drawing.Point(15, 66);
+            this.rectangleShape1.Name = "rectangleShape1";
+            this.rectangleShape1.Size = new System.Drawing.Size(383, 221);
             // 
             // Tabs
             // 
@@ -932,7 +1000,7 @@
             this.Tabs.Controls.Add(this.MooegeTab);
             this.Tabs.Controls.Add(this.HelpTab);
             this.Tabs.Controls.Add(this.AboutTab);
-            this.Tabs.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Tabs.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Tabs.HotTrack = true;
             this.Tabs.Location = new System.Drawing.Point(3, 0);
             this.Tabs.Name = "Tabs";
@@ -940,12 +1008,59 @@
             this.Tabs.Size = new System.Drawing.Size(429, 471);
             this.Tabs.TabIndex = 13;
             // 
+            // ChaneglogTab
+            // 
+            this.ChaneglogTab.BackColor = System.Drawing.Color.White;
+            this.ChaneglogTab.Controls.Add(this.SelectRepositoryChngLogLabel);
+            this.ChaneglogTab.Controls.Add(this.SelectRepoChngLogComboBox);
+            this.ChaneglogTab.Controls.Add(this.pictureBox9);
+            this.ChaneglogTab.Controls.Add(this.ChangeLogTxtBox);
+            this.ChaneglogTab.Location = new System.Drawing.Point(4, 22);
+            this.ChaneglogTab.Name = "ChaneglogTab";
+            this.ChaneglogTab.Padding = new System.Windows.Forms.Padding(3);
+            this.ChaneglogTab.Size = new System.Drawing.Size(421, 445);
+            this.ChaneglogTab.TabIndex = 1;
+            this.ChaneglogTab.Text = "Changelog";
+            // 
+            // SelectRepoChngLogComboBox
+            // 
+            this.SelectRepoChngLogComboBox.FormattingEnabled = true;
+            this.SelectRepoChngLogComboBox.Location = new System.Drawing.Point(139, 65);
+            this.SelectRepoChngLogComboBox.Name = "SelectRepoChngLogComboBox";
+            this.SelectRepoChngLogComboBox.Size = new System.Drawing.Size(121, 21);
+            this.SelectRepoChngLogComboBox.TabIndex = 22;
+            this.SelectRepoChngLogComboBox.SelectedIndexChanged += new System.EventHandler(this.SelectRepoChngLogComboBox_SelectedIndexChanged);
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = global::MadCow.Properties.Resources.madcosofted;
+            this.pictureBox9.Location = new System.Drawing.Point(36, 7);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(349, 50);
+            this.pictureBox9.TabIndex = 21;
+            this.pictureBox9.TabStop = false;
+            // 
+            // ChangeLogTxtBox
+            // 
+            this.ChangeLogTxtBox.BackColor = System.Drawing.Color.White;
+            this.ChangeLogTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ChangeLogTxtBox.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChangeLogTxtBox.ForeColor = System.Drawing.Color.Black;
+            this.ChangeLogTxtBox.Location = new System.Drawing.Point(35, 92);
+            this.ChangeLogTxtBox.Multiline = true;
+            this.ChangeLogTxtBox.Name = "ChangeLogTxtBox";
+            this.ChangeLogTxtBox.ReadOnly = true;
+            this.ChangeLogTxtBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.ChangeLogTxtBox.Size = new System.Drawing.Size(351, 343);
+            this.ChangeLogTxtBox.TabIndex = 2;
+            // 
             // MooegeTab
             // 
             this.MooegeTab.BackColor = System.Drawing.Color.White;
+            this.MooegeTab.Controls.Add(this.pictureBox11);
             this.MooegeTab.Controls.Add(this.groupBox9);
             this.MooegeTab.Controls.Add(this.groupBox8);
-            this.MooegeTab.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MooegeTab.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.MooegeTab.Location = new System.Drawing.Point(4, 22);
             this.MooegeTab.Name = "MooegeTab";
             this.MooegeTab.Padding = new System.Windows.Forms.Padding(3);
@@ -953,12 +1068,21 @@
             this.MooegeTab.TabIndex = 6;
             this.MooegeTab.Text = "Mooege";
             // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = global::MadCow.Properties.Resources.madcosofted;
+            this.pictureBox11.Location = new System.Drawing.Point(36, 7);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(349, 50);
+            this.pictureBox11.TabIndex = 21;
+            this.pictureBox11.TabStop = false;
+            // 
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.SettingsCheckedListBox);
             this.groupBox9.Location = new System.Drawing.Point(44, 121);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(333, 262);
+            this.groupBox9.Size = new System.Drawing.Size(333, 112);
             this.groupBox9.TabIndex = 1;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Mooege Settings";
@@ -1025,6 +1149,7 @@
             // HelpTab
             // 
             this.HelpTab.BackColor = System.Drawing.Color.White;
+            this.HelpTab.Controls.Add(this.pictureBox12);
             this.HelpTab.Controls.Add(this.DownloadNetLabel);
             this.HelpTab.Controls.Add(this.ProblemsCompilingLabel);
             this.HelpTab.Controls.Add(this.AutoUpdateMadcowLabel);
@@ -1049,13 +1174,22 @@
             this.HelpTab.Controls.Add(this.ResetMooegeReposLabel);
             this.HelpTab.Controls.Add(this.ResetRepoFolder);
             this.HelpTab.Controls.Add(this.ChainPicture);
-            this.HelpTab.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.HelpTab.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.HelpTab.Location = new System.Drawing.Point(4, 22);
             this.HelpTab.Name = "HelpTab";
             this.HelpTab.Padding = new System.Windows.Forms.Padding(3);
             this.HelpTab.Size = new System.Drawing.Size(421, 445);
             this.HelpTab.TabIndex = 4;
             this.HelpTab.Text = "Help";
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Image = global::MadCow.Properties.Resources.madcosofted;
+            this.pictureBox12.Location = new System.Drawing.Point(36, 7);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(349, 50);
+            this.pictureBox12.TabIndex = 29;
+            this.pictureBox12.TabStop = false;
             // 
             // DownloadNetLabel
             // 
@@ -1297,63 +1431,28 @@
             this.ChainPicture.TabStop = false;
             this.ChainPicture.Visible = false;
             // 
-            // ChaneglogTab
-            // 
-            this.ChaneglogTab.BackColor = System.Drawing.Color.White;
-            this.ChaneglogTab.Controls.Add(this.ChangeLogTxtBox);
-            this.ChaneglogTab.Controls.Add(this.SelectRepositoryChngLogLabel);
-            this.ChaneglogTab.Controls.Add(this.SelectRepoChngLogComboBox);
-            this.ChaneglogTab.Location = new System.Drawing.Point(4, 22);
-            this.ChaneglogTab.Name = "ChaneglogTab";
-            this.ChaneglogTab.Padding = new System.Windows.Forms.Padding(3);
-            this.ChaneglogTab.Size = new System.Drawing.Size(421, 445);
-            this.ChaneglogTab.TabIndex = 1;
-            this.ChaneglogTab.Text = "Changelog";
-            // 
-            // ChangeLogTxtBox
-            // 
-            this.ChangeLogTxtBox.BackColor = System.Drawing.Color.SteelBlue;
-            this.ChangeLogTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ChangeLogTxtBox.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChangeLogTxtBox.ForeColor = System.Drawing.Color.White;
-            this.ChangeLogTxtBox.Location = new System.Drawing.Point(35, 90);
-            this.ChangeLogTxtBox.Multiline = true;
-            this.ChangeLogTxtBox.Name = "ChangeLogTxtBox";
-            this.ChangeLogTxtBox.ReadOnly = true;
-            this.ChangeLogTxtBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.ChangeLogTxtBox.Size = new System.Drawing.Size(351, 291);
-            this.ChangeLogTxtBox.TabIndex = 2;
-            // 
-            // SelectRepositoryChngLogLabel
-            // 
-            this.SelectRepositoryChngLogLabel.AutoSize = true;
-            this.SelectRepositoryChngLogLabel.Location = new System.Drawing.Point(93, 66);
-            this.SelectRepositoryChngLogLabel.Name = "SelectRepositoryChngLogLabel";
-            this.SelectRepositoryChngLogLabel.Size = new System.Drawing.Size(100, 13);
-            this.SelectRepositoryChngLogLabel.TabIndex = 1;
-            this.SelectRepositoryChngLogLabel.Text = "Select A Repository";
-            // 
-            // SelectRepoChngLogComboBox
-            // 
-            this.SelectRepoChngLogComboBox.FormattingEnabled = true;
-            this.SelectRepoChngLogComboBox.Location = new System.Drawing.Point(199, 63);
-            this.SelectRepoChngLogComboBox.Name = "SelectRepoChngLogComboBox";
-            this.SelectRepoChngLogComboBox.Size = new System.Drawing.Size(121, 21);
-            this.SelectRepoChngLogComboBox.TabIndex = 0;
-            this.SelectRepoChngLogComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-            // 
             // AboutTab
             // 
             this.AboutTab.BackColor = System.Drawing.Color.White;
+            this.AboutTab.Controls.Add(this.pictureBox13);
             this.AboutTab.Controls.Add(this.groupBox7);
             this.AboutTab.Controls.Add(this.MadCowCreditsLabel);
-            this.AboutTab.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AboutTab.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.AboutTab.Location = new System.Drawing.Point(4, 22);
             this.AboutTab.Name = "AboutTab";
             this.AboutTab.Padding = new System.Windows.Forms.Padding(3);
             this.AboutTab.Size = new System.Drawing.Size(421, 445);
             this.AboutTab.TabIndex = 5;
             this.AboutTab.Text = "About";
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.Image = global::MadCow.Properties.Resources.madcosofted;
+            this.pictureBox13.Location = new System.Drawing.Point(36, 7);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(349, 50);
+            this.pictureBox13.TabIndex = 21;
+            this.pictureBox13.TabStop = false;
             // 
             // groupBox7
             // 
@@ -1429,45 +1528,6 @@
             // 
             this.MpqPathBrowserDialog.Description = "Select the MPQ destination.";
             // 
-            // rectangleShape1
-            // 
-            this.rectangleShape1.BorderColor = System.Drawing.Color.Orange;
-            this.rectangleShape1.CornerRadius = 5;
-            this.rectangleShape1.Location = new System.Drawing.Point(15, 66);
-            this.rectangleShape1.Name = "rectangleShape1";
-            this.rectangleShape1.Size = new System.Drawing.Size(383, 221);
-            // 
-            // shapeContainer1
-            // 
-            this.shapeContainer1.Location = new System.Drawing.Point(3, 3);
-            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer1.Name = "shapeContainer1";
-            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.rectangleShape2,
-            this.rectangleShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(415, 439);
-            this.shapeContainer1.TabIndex = 25;
-            this.shapeContainer1.TabStop = false;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.generalProgressBar);
-            this.groupBox3.Controls.Add(this.DownloadRepoBar);
-            this.groupBox3.Location = new System.Drawing.Point(27, 310);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(190, 54);
-            this.groupBox3.TabIndex = 26;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Progress Bars";
-            // 
-            // rectangleShape2
-            // 
-            this.rectangleShape2.BorderColor = System.Drawing.Color.SteelBlue;
-            this.rectangleShape2.CornerRadius = 5;
-            this.rectangleShape2.Location = new System.Drawing.Point(14, 302);
-            this.rectangleShape2.Name = "rectangleShape2";
-            this.rectangleShape2.Size = new System.Drawing.Size(383, 63);
-            // 
             // ConsoleOutputTxtBox
             // 
             this.ConsoleOutputTxtBox.BackColor = System.Drawing.Color.SteelBlue;
@@ -1493,14 +1553,14 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Output";
             // 
-            // pictureBox8
+            // SelectRepositoryChngLogLabel
             // 
-            this.pictureBox8.Image = global::MadCow.Properties.Resources.madcosofted;
-            this.pictureBox8.Location = new System.Drawing.Point(36, 7);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(349, 50);
-            this.pictureBox8.TabIndex = 21;
-            this.pictureBox8.TabStop = false;
+            this.SelectRepositoryChngLogLabel.AutoSize = true;
+            this.SelectRepositoryChngLogLabel.Location = new System.Drawing.Point(33, 68);
+            this.SelectRepositoryChngLogLabel.Name = "SelectRepositoryChngLogLabel";
+            this.SelectRepositoryChngLogLabel.Size = new System.Drawing.Size(100, 13);
+            this.SelectRepositoryChngLogLabel.TabIndex = 24;
+            this.SelectRepositoryChngLogLabel.Text = "Select A Repository";
             // 
             // Form1
             // 
@@ -1523,9 +1583,11 @@
             this.groupBox2.PerformLayout();
             this.RemoteServerTab.ResumeLayout(false);
             this.RemoteServerTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.RemoteServerGrpBox.ResumeLayout(false);
             this.RemoteServerGrpBox.PerformLayout();
             this.ServerControlTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TickGameServerPort)).EndInit();
@@ -1540,6 +1602,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ErrorBnetServerIp)).EndInit();
             this.UpdatesTab.ResumeLayout(false);
             this.UpdatesTab.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -1552,22 +1615,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Tabs.ResumeLayout(false);
+            this.ChaneglogTab.ResumeLayout(false);
+            this.ChaneglogTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.MooegeTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.groupBox9.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             this.HelpTab.ResumeLayout(false);
             this.HelpTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ChainPicture)).EndInit();
-            this.ChaneglogTab.ResumeLayout(false);
-            this.ChaneglogTab.PerformLayout();
             this.AboutTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1682,8 +1747,6 @@
         private System.Windows.Forms.Label ProblemsCompilingLabel;
         private System.Windows.Forms.TabPage ChaneglogTab;
         private System.Windows.Forms.TextBox ChangeLogTxtBox;
-        private System.Windows.Forms.Label SelectRepositoryChngLogLabel;
-        private System.Windows.Forms.ComboBox SelectRepoChngLogComboBox;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
@@ -1698,6 +1761,13 @@
         public System.Windows.Forms.TextBox ConsoleOutputTxtBox;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.PictureBox pictureBox13;
+        private System.Windows.Forms.ComboBox SelectRepoChngLogComboBox;
+        private System.Windows.Forms.Label SelectRepositoryChngLogLabel;
 
     }
 }
