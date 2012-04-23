@@ -38,7 +38,7 @@ namespace MadCow
             }
 
             //WebRequest request = WebRequest.Create("http://enus.patch.battle.net:1119/patch"); //Up to 8101.
-            WebRequest request = WebRequest.Create("http://public-test.patch.battle.net:1119");
+            WebRequest request = WebRequest.Create("http://us.patch.battle.net:1119");
             if (Proxy.proxyStatus)
                 request.Proxy = proxy;
 
