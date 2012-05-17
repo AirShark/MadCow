@@ -27,6 +27,7 @@ namespace MadCow
 {
     class RetrieveMpqList
     {
+        public static string baseUrl { get; set; }
         //This function will ask and retrieve latest file list from Blizzard server.
         public static void getfileList()
         {
@@ -107,7 +108,10 @@ namespace MadCow
                 {
                     case "server":
                         xmlReader.MoveToAttribute("url");
+                        //Full URL to MFIL file.
                         mfil = xmlReader.Value + mfil;
+                        //We also parse the baseUrl that will be used for downloading individual mpq files.
+                        baseUrl = xmlReader.Value;
                         _found = true;
                     break;
                 }

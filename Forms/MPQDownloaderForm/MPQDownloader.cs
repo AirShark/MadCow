@@ -60,13 +60,13 @@ namespace MadCow
             {
                 if (checkedListBox1.SelectedItem.ToString().Contains("CoreData") || checkedListBox1.SelectedItem.ToString().Contains("ClientData"))
                 {
-                    mpqSelection.Add("http://ak.worldofwarcraft.com.edgesuite.net//d3-pod/20FB5BE9/NA/7162.direct/Data_D3/PC/MPQs/" + checkedListBox1.SelectedItem.ToString() + ".mpq");
+                    mpqSelection.Add(RetrieveMpqList.baseUrl + "Data_D3/PC/MPQs/" + checkedListBox1.SelectedItem.ToString() + ".mpq");
                     //Console.WriteLine("File Added: {0}", checkedListBox1.SelectedItem.ToString());
                     //Console.WriteLine("Download Array Length: {0}", mpqSelection.Count);
                 }
                 else //base MPQ files.
                 {
-                    mpqSelection.Add("http://ak.worldofwarcraft.com.edgesuite.net//d3-pod/20FB5BE9/NA/7162.direct/Data_D3/PC/MPQs/base/d3-update-base-" + checkedListBox1.SelectedItem.ToString() + ".MPQ");
+                    mpqSelection.Add(RetrieveMpqList.baseUrl + "Data_D3/PC/MPQs/base/d3-update-base-" + checkedListBox1.SelectedItem.ToString() + ".MPQ");
                     //Console.WriteLine("File Added: {0}", checkedListBox1.SelectedItem.ToString());
                     //Console.WriteLine("Download Array Length: {0}", mpqSelection.Count);
                 }
@@ -75,13 +75,13 @@ namespace MadCow
             {
                 if (checkedListBox1.SelectedItem.ToString().Contains("CoreData") || checkedListBox1.SelectedItem.ToString().Contains("ClientData"))
                 {
-                    mpqSelection.Remove("http://ak.worldofwarcraft.com.edgesuite.net//d3-pod/20FB5BE9/NA/7162.direct/Data_D3/PC/MPQs/" + checkedListBox1.SelectedItem.ToString() + ".mpq");
+                    mpqSelection.Remove(RetrieveMpqList.baseUrl + "Data_D3/PC/MPQs/" + checkedListBox1.SelectedItem.ToString() + ".mpq");
                     //Console.WriteLine("File Removed: {0}", checkedListBox1.SelectedItem.ToString());
                     //Console.WriteLine("Download Array Length: {0}", mpqSelection.Count);
                 }
                 else //base MPQ files.
                 {
-                    mpqSelection.Remove("http://ak.worldofwarcraft.com.edgesuite.net//d3-pod/20FB5BE9/NA/7162.direct/Data_D3/PC/MPQs/base/d3-update-base-" + checkedListBox1.SelectedItem.ToString() + ".MPQ");
+                    mpqSelection.Remove(RetrieveMpqList.baseUrl + "Data_D3/PC/MPQs/base/d3-update-base-" + checkedListBox1.SelectedItem.ToString() + ".MPQ");
                     //Console.WriteLine("File Removed: {0}", checkedListBox1.SelectedItem.ToString());
                     //Console.WriteLine("Download Array Length: {0}", mpqSelection.Count);
                 }
