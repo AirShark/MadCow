@@ -1458,6 +1458,7 @@ namespace MadCow
 
         private void DownloadMPQS(object sender, DoWorkEventArgs e)
         {
+            Form1.GlobalAccess.Invoke(new Action(() => { DownloadMPQSButton.Enabled = false; }));
             var proxy = new WebProxy();
             if (Proxy.proxyStatus)
             {
@@ -1552,6 +1553,7 @@ namespace MadCow
             DownloadSpeedLabel.Visible = false;
             MPQDownloader.mpqSelection.Clear();//Reset the Array values after downloading.
             Console.WriteLine("Download complete.");
+            DownloadMPQSButton.Enabled = true;
         }
         #endregion
 
@@ -2333,12 +2335,14 @@ namespace MadCow
         ///////////////////////////////////////////////////////////
         //MadCow Self Updater
         ///////////////////////////////////////////////////////////
+        //TODO: FIX THIS.
         #region MadCowUpdater
         private void button5_Click(object sender, EventArgs e)
         {
-            Process firstProc = new Process();
-            firstProc.StartInfo.FileName = @"MadCowUpdater\MadCowUpdater.exe";
-            firstProc.Start();
+            //Process firstProc = new Process();
+            //firstProc.StartInfo.FileName = @"MadCowUpdater\MadCowUpdater.exe";
+            //firstProc.Start();
+            MessageBox.Show("This option is temporarily disabled, please update directly from GitHub.\nSorry for the inconvenience.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         #endregion
 
