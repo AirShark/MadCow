@@ -85,6 +85,9 @@ namespace Bnet.Patcher
                                     {
                                         Console.ForegroundColor = ConsoleColor.Red;
                                         Console.WriteLine("Battle.net.dll version different than expected.");
+                                        Console.WriteLine("Press any key to exit...");
+                                        Console.ReadKey();
+                                        System.Environment.Exit(1);
                                         Console.ForegroundColor = ConsoleColor.Gray;
                                     }
                                 }
