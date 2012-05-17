@@ -37,8 +37,7 @@ namespace MadCow
                 proxy.Credentials = new NetworkCredential(Proxy.username, Proxy.password);
             }
 
-            //WebRequest request = WebRequest.Create("http://enus.patch.battle.net:1119/patch"); //Up to 8101.
-            WebRequest request = WebRequest.Create("http://us.patch.battle.net:1119");
+            WebRequest request = WebRequest.Create("http://enus.patch.battle.net:1119"); //Retail.
             if (Proxy.proxyStatus)
                 request.Proxy = proxy;
 
@@ -46,8 +45,9 @@ namespace MadCow
             request.Method = "POST";
             request.ContentType = "text/html";
 
-            //var postData = "<version program=\"D3\"><record program=\"Bnet\" component=\"Win\" version=\"1\" /><record program=\"D3\" component=\"enUS\" version=\"1\" /></version>";//Up to 8101
-            var postData = "<version program=\"D3B\"><record program=\"Bnet\" component=\"Win\" version=\"1\" /><record program=\"D3B\" component=\"enUS\" version=\"3\"/></version>";
+            var postData = "<version program=\"D3\"><record program=\"Bnet\" component=\"Win\" version=\"1\" /><record program=\"D3\" component=\"enUS\" version=\"1\"/></version>";//RETAIL
+            //var postData = "<version program=\"D3B\"><record program=\"Bnet\" component=\"Win\" version=\"1\" /><record program=\"D3B\" component=\"enUS\" version=\"3\"/></version>";//Beta
+
             var byteArray = ASCIIEncoding.UTF8.GetBytes(postData);
             request.ContentLength = byteArray.Length;
 
@@ -58,9 +58,9 @@ namespace MadCow
             WebResponse response = request.GetResponse();
 
             Stream ReceiveStream = response.GetResponseStream();
-            
-            StreamReader readStream = new StreamReader(ReceiveStream, Encoding.GetEncoding("utf-8"));         
-            
+
+            StreamReader readStream = new StreamReader(ReceiveStream, Encoding.GetEncoding("utf-8"));
+
             var xml = new XmlTextReader(readStream);
             string[] D3Data = new string[0];
 
@@ -70,7 +70,7 @@ namespace MadCow
                 {
                     case "record":
                         xml.MoveToAttribute("program");
-                        if (xml.Value == "D3B")
+                        if (xml.Value == "D3")
                         {
                             xml.Read();
                             D3Data = xml.Value.Trim().Split(';');
@@ -78,6 +78,14 @@ namespace MadCow
                         break;
                 }
             }
+
+            /*StreamWriter sw = new StreamWriter(@"D:\Testing.txt");
+            foreach (string a in D3Data)
+            {
+                sw.WriteLine(a);
+            }
+            sw.Close();*/
+
             xml.Close();
             readStream.Close();
             response.Close();
@@ -85,23 +93,28 @@ namespace MadCow
             var wc = new WebClient();
             if (Proxy.proxyStatus)
                 wc.Proxy = proxy;
-            //We put up the .mfil path which contains the fileList.
-            var mfil = "d3b-" + D3Data[3] + "-" + D3Data[2] + ".mfil";
+
+            //We put together the .mfil path which contains the fileList.
+            var mfil = "d3-" + D3Data[3] + "-" + D3Data[2] + ".mfil";
 
             var config = wc.DownloadString(D3Data[0]);
-            var rdr = System.Xml.XmlReader.Create(new StringReader(config));
-            while (rdr.Read())
+            var xmlReader = System.Xml.XmlReader.Create(new StringReader(config));
+            var _found = false;
+
+            while (xmlReader.Read() && !_found)
             {
-                switch (rdr.Name)
+                switch (xmlReader.Name)
                 {
                     case "server":
-                        rdr.MoveToAttribute("url");
-                        mfil = rdr.Value + mfil;
-                        break;
+                        xmlReader.MoveToAttribute("url");
+                        mfil = xmlReader.Value + mfil;
+                        _found = true;
+                    break;
                 }
             }
-            rdr.Close();
+            xmlReader.Close();
 
+            //Save the mfil file over RunTimeDownloads folder.
             System.IO.File.WriteAllText(Program.programPath + "\\RuntimeDownloads\\Diablo III.mfil", wc.DownloadString(mfil));
             parseFiles();
         }
