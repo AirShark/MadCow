@@ -90,11 +90,11 @@ namespace MadCow
                 foreach (String Element in Files)
                 {
                     //Filter for non needed MPQ's
-                    if (Directory.Exists(Element) && Element.Contains("enUS") || Element.Contains("Cache")
-                        || Element.Contains("Win") || Element.Contains("enUS_Audio")
-                        || Element.Contains("enUS_Cutscene") || Element.Contains("enUS_Text")
+                    if (Directory.Exists(Element) && Element.Contains("Cache")
+                        || Element.Contains("Win") || Element.Contains("Audio")
                         || Element.Contains("Sound") || Element.Contains("Texture")
-                        || Element.Contains("HLSLShaders") || Element.Contains("lock"))
+                        || Element.Contains("HLSLShaders") || Element.Contains("lock")
+                        || Element.Contains("Cutscene") || Element.Contains("Text"))
                     {
                         Console.WriteLine("Skipped: " + Path.GetFileName(Element));
                     }

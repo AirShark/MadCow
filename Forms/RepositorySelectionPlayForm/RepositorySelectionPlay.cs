@@ -68,7 +68,7 @@ namespace MadCow
                 repoINIpath.Configs["MooNet-Server"].Set("BindIP", "0.0.0.0");
                 repoINIpath.Configs["Game-Server"].Set("BindIP", "0.0.0.0");
                 repoINIpath.Configs["NAT"].Set("PublicIP", "0.0.0.0");
-                repoINIpath.Configs["MooNet-Server"].Set("Port", "1345");
+                repoINIpath.Configs["MooNet-Server"].Set("Port", "1119");
                 repoINIpath.Configs["Game-Server"].Set("Port", "1999");
                 repoINIpath.Configs["MooNet-Server"].Set("MOTD", "Welcome to mooege development server!");
                 repoINIpath.Configs["NAT"].Set("Enabled", "false");

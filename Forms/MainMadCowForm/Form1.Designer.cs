@@ -78,6 +78,8 @@
             this.BnetServerIp = new System.Windows.Forms.TextBox();
             this.UpdatesTab = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.generalProgressBar = new System.Windows.Forms.ProgressBar();
             this.DownloadRepoBar = new System.Windows.Forms.ProgressBar();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
@@ -157,8 +159,6 @@
             this.MpqPathBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.ConsoleOutputTxtBox = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.AutoUpdateValue)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.RemoteServerTab.SuspendLayout();
@@ -366,7 +366,7 @@
             this.remotePortTxtBox.Name = "remotePortTxtBox";
             this.remotePortTxtBox.Size = new System.Drawing.Size(100, 20);
             this.remotePortTxtBox.TabIndex = 1;
-            this.remotePortTxtBox.Text = "1345";
+            this.remotePortTxtBox.Text = "1119";
             // 
             // remoteHostTxtBox
             // 
@@ -684,7 +684,7 @@
             this.BnetServerPort.Name = "BnetServerPort";
             this.BnetServerPort.Size = new System.Drawing.Size(85, 20);
             this.BnetServerPort.TabIndex = 1;
-            this.BnetServerPort.Text = "1345";
+            this.BnetServerPort.Text = "1119";
             this.BnetServerPort.TextChanged += new System.EventHandler(this.BnetServerPort_TextChanged);
             // 
             // BnetServerIp
@@ -732,6 +732,24 @@
             this.groupBox3.TabIndex = 26;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Progress Bars";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(170, 51);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "General";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(169, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Download";
             // 
             // generalProgressBar
             // 
@@ -1534,24 +1552,6 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Output";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(169, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Download";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(170, 51);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "General";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1691,7 +1691,6 @@
         private System.Windows.Forms.PictureBox TickPublicServerIp;
         private System.Windows.Forms.PictureBox TickGameServerIp;
         private System.Windows.Forms.Label DownloadMpqLabel;
-        private System.Windows.Forms.Button DownloadMPQSButton;
         public System.Windows.Forms.ProgressBar DownloadMPQSprogressBar;
         private System.Windows.Forms.Label DownloadFileNameLabel;
         private System.Windows.Forms.Label DownloadSpeedLabel;
@@ -1758,6 +1757,7 @@
         private System.Windows.Forms.Label SelectRepositoryChngLogLabel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Button DownloadMPQSButton;
 
     }
 }

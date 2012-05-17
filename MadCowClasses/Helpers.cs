@@ -176,7 +176,7 @@ namespace MadCow
                 //tw.WriteLine("Public Server Ip");
                 tw.WriteLine("0.0.0.0");
                 //tw.WriteLine("Bnet Server Port");
-                tw.WriteLine("1345");
+                tw.WriteLine("1119");
                 //tw.WriteLine("Game Server Port");
                 tw.WriteLine("1999");
                 //tw.WriteLine("MOTD");

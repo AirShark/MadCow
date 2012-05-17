@@ -100,6 +100,7 @@ namespace MadCow
             RetrieveMpqList.getfileList(); //Load MPQ list from Blizz server. Todo: This might slow down a bit MadCow loading, maybe we could place it somewhere else?.
             Helper.KillUpdater(); //This will kill MadCow updater if its running.
             ApplySettings(); //This loads Mooege settings over Mooege tab.
+            DNShoudini.checkDNS();
             splash.Hide();
         }
         #endregion
@@ -531,7 +532,7 @@ namespace MadCow
         {
             //Restore Default Server Control Settings
             BnetServerIp.Text = "0.0.0.0";
-            BnetServerPort.Text = "1345";
+            BnetServerPort.Text = "1119";
             GameServerIp.Text = "0.0.0.0";
             GameServerPort.Text = "1999";
             PublicServerIp.Text = "0.0.0.0";
@@ -2291,6 +2292,7 @@ namespace MadCow
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            DNShoudini.RestoreNameservers();
             SaveSettings();
         }
 

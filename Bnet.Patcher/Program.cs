@@ -67,7 +67,7 @@ namespace Bnet.Patcher
                         {
                             hWnd = OpenProcess(0x001F0FFF, false, p.Id);
                             if (hWnd == IntPtr.Zero)
-                                throw new Exception("Failed to open process.");
+                                Console.WriteLine("Failed to open process.");
 
                             var modules = p.Modules;
                             IntPtr baseAddr = IntPtr.Zero;
@@ -85,16 +85,13 @@ namespace Bnet.Patcher
                                     {
                                         Console.ForegroundColor = ConsoleColor.Red;
                                         Console.WriteLine("Battle.net.dll version different than expected.");
-                                        Console.WriteLine("Press any key to exit...");
-                                        Console.ReadKey();
-                                        System.Environment.Exit(1);
                                         Console.ForegroundColor = ConsoleColor.Gray;
                                     }
                                 }
                             }
 
                             if (baseAddr == IntPtr.Zero)
-                                throw new Exception("Failed to locate battle.net.dll");
+                                Console.WriteLine("Failed to locate battle.net.dll");
 
                             var JMPAddr = baseAddr.ToInt32() + offset;
                             var BytesWritten = IntPtr.Zero;
@@ -110,7 +107,7 @@ namespace Bnet.Patcher
                             Console.WriteLine("After write: 0x{0:X2}", ReadByte(hWnd, JMPAddr));
 
                             if (BytesWritten.ToInt32() < 1)
-                                throw new Exception("Failed to write to process.");
+                                Console.WriteLine("Failed to write to process.");
                             else
                             {
                                 Console.ForegroundColor = ConsoleColor.Green;
@@ -131,7 +128,7 @@ namespace Bnet.Patcher
                     }
                 }
             }
-            Thread.Sleep(2000);
+            Thread.Sleep(1500);
         }
 
         static byte ReadByte(IntPtr _handle, int offset)
