@@ -29,8 +29,12 @@ namespace MadCow
             var WshShell = new WshShell();
 
             IWshRuntimeLibrary.IWshShortcut MyShortcut;
+            //For foreign users, The "Desktop" Folder Not always named "Desktop", e.g. "桌面" for chinese.  
+            //MyShortcut = (IWshRuntimeLibrary.IWshShortcut)WshShell.CreateShortcut(@Environment.GetEnvironmentVariable("USERPROFILE") + "\\Desktop\\MadCow.lnk");
 
-            MyShortcut = (IWshRuntimeLibrary.IWshShortcut)WshShell.CreateShortcut(@Environment.GetEnvironmentVariable("USERPROFILE") + "\\Desktop\\MadCow.lnk");
+            String desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            String lnk = desktop + "\\MadCow.lnk";
+            MyShortcut = (IWshRuntimeLibrary.IWshShortcut)WshShell.CreateShortcut(lnk);
             MyShortcut.TargetPath = Application.ExecutablePath;
             MyShortcut.WorkingDirectory = Program.programPath;
             MyShortcut.Description = "MadCow";
