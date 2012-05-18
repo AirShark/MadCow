@@ -27,7 +27,7 @@ namespace MadCow
             PingOptions Options = new PingOptions(50, true);
 
             // Send the ping asynchronously
-            pingSender.SendAsync("www.google.com", 2000, _data, Options, resetEvent);
+            pingSender.SendAsync("www.google.com", 2000, _data, Options);
         }
 
         private void pingTest_Complete(object sender, PingCompletedEventArgs e)
