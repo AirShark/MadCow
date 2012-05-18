@@ -10,13 +10,8 @@ namespace MadCow
 {
     class Ping
     {
-        private int pingsSent;
-        // Can be used to notify when the operation completes
-        AutoResetEvent resetEvent = new AutoResetEvent(false);
-
         public void StartPingTest()
         {
-            pingsSent = 0;
             SendPing();
         }
 
@@ -39,12 +34,11 @@ namespace MadCow
         {
             if (e.Error != null)
             {
-                ((AutoResetEvent)e.UserState).Set();
+                MessageBox.Show("MadCow was unable to detect an active Internet connection." + "\nMadCow has an strong Internet dependency and wont work properly under this conditions.", "[FATAL ERROR] - No Internet Connection was found", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 PingReply pingResponse = e.Reply;
-                // Call the method that displays the ping results, and pass the information with it
                 if (pingResponse.Status == IPStatus.Success)
                     Console.WriteLine("Internet connectivity found.");
                 else
