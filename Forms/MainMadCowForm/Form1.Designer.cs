@@ -384,7 +384,7 @@
             this.MadCowCreditsLabel.ForeColor = System.Drawing.SystemColors.WindowText;
             this.MadCowCreditsLabel.Location = new System.Drawing.Point(43, 185);
             this.MadCowCreditsLabel.Name = "MadCowCreditsLabel";
-            this.MadCowCreditsLabel.Size = new System.Drawing.Size(334, 186);
+            this.MadCowCreditsLabel.Size = new System.Drawing.Size(334, 203);
             this.MadCowCreditsLabel.TabIndex = 1;
             this.MadCowCreditsLabel.Text = resources.GetString("MadCowCreditsLabel.Text");
             this.MadCowCreditsLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;

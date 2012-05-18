@@ -22,8 +22,6 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
 using Nini.Config;
-using System.Text.RegularExpressions;
-using System.Net.NetworkInformation;
 
 namespace MadCow
 {
@@ -107,46 +105,10 @@ namespace MadCow
         }
 
         //Check for internet Connection.
-        public static bool isConnectionAvailable()
-        {
-            bool _success;
-            //We use google... ff google is down, probably we got hit by a meteor.
-            string[] sitesList = { "www.google.com" };
-            Ping ping = new Ping();
-            PingReply reply;
-            int notReturned = 0;
-
-            try
-            {
-                reply = ping.Send(sitesList[0], 10);
-                if (reply.Status != IPStatus.Success)
-                {
-                    notReturned += 1;
-                }
-                if (notReturned == sitesList.Length)
-                {
-                    _success = false;                    
-                }
-                else
-                {
-                    _success = true;
-                }
-            }
-            catch
-            {
-                _success = false;
-            }
-            return _success;
-        }
-
-        //Check for internet Connection.
         public static void CheckForInternet()
         {
-            //If we were unable to ping the server, we warn the user about repercutions!.
-            if (!isConnectionAvailable())
-            {
-                MessageBox.Show("There is no Internet connection, MadCow will NOT be able to perform correctly." + "\n\nBe aware: Fatal errors might happen:" + "\nMadCow has an strong Internet dependency.","Warning - No Internet Connection was found",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
+            Ping ping = new Ping();
+            ping.StartPingTest();
         }
 
         //Create default need folders.
