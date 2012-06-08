@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
-using System.Threading;
 
 namespace Bnet.Patcher
 {
@@ -33,102 +32,93 @@ namespace Bnet.Patcher
         #endregion
 
         #region Build 0.11.0.9327.BETA
+        //Build 0.11.0.9359.BETA
         //static Int32 offset = 0x000B5605;
+        //static string version = "8eac7d44dc";
         #endregion
         #endregion
 
         #region Build 1.0.1.9558
-        static Int32 offset = 0x000B5952;
-        static string version = "31c8df955a";
+        //static Int32 offset = 0x000B5952;
+        //static string version = "31c8df955a";
+        #endregion
+
+        #region Build 1.0.2.9749
+        //static Int32 offset = 0x000BA802;
+        //static string version = "8018401a9c";
+        #endregion
+
+        #region Build 1.0.2.9858
+        static Int32 offset = 0x000BA8A2;
+        static string version = "79fef7ae8e";
         #endregion
 
         static void Main(string[] args)
         {
-            var running = false;
+            var foundD3 = false;
             var hWnd = IntPtr.Zero;
-            Console.WriteLine("Looking for Diablo III Process");
-            while (!running)
+            try
             {
                 foreach (var p in Process.GetProcesses())
                 {
                     if (p.ProcessName == "Diablo III")
                     {
-                        Console.WriteLine("Process Found!");
-                        Console.WriteLine("Waiting for Diablo 3 Interface to load...");
-                        while (!p.Responding)
+                        foundD3 = true;
+                        hWnd = OpenProcess(0x001F0FFF, false, p.Id);
+                        if (hWnd == IntPtr.Zero)
+                            throw new Exception("Failed to open process.");
+
+                        var modules = p.Modules;
+                        IntPtr baseAddr = IntPtr.Zero;
+
+                        foreach (ProcessModule module in modules)
                         {
-                            //Waiting for interface to respond.
-                        }
-                        Console.WriteLine("Diablo3 Loaded, please wait...");
-                        Thread.Sleep(3000);
-                        Console.WriteLine("Applying Patch!...");
-
-                        try
-                        {
-                            hWnd = OpenProcess(0x001F0FFF, false, p.Id);
-                            if (hWnd == IntPtr.Zero)
-                                Console.WriteLine("Failed to open process.");
-
-                            var modules = p.Modules;
-                            IntPtr baseAddr = IntPtr.Zero;
-
-                            foreach (ProcessModule module in modules)
+                            if (module.ModuleName == "battle.net.dll")
                             {
-                                if (module.ModuleName == "battle.net.dll")
+                                if (module.FileVersionInfo.FileDescription == version)
                                 {
-                                    if (module.FileVersionInfo.FileDescription == version)
-                                    {
-                                        baseAddr = module.BaseAddress;
-                                        break;
-                                    }
-                                    else
-                                    {
-                                        Console.ForegroundColor = ConsoleColor.Red;
-                                        Console.WriteLine("Battle.net.dll version different than expected.");
-                                        Console.ForegroundColor = ConsoleColor.Gray;
-                                    }
+                                    baseAddr = module.BaseAddress;
+                                    break;
                                 }
+                                else
+                                    throw new Exception("battle.net.dll version different than expected.");
                             }
-
-                            if (baseAddr == IntPtr.Zero)
-                                Console.WriteLine("Failed to locate battle.net.dll");
-
-                            var JMPAddr = baseAddr.ToInt32() + offset;
-                            var BytesWritten = IntPtr.Zero;
-                            byte[] JMP = new byte[] { 0xEB };
-                            Console.WriteLine("battle.net.dll address: 0x{0:X8}", baseAddr.ToInt32());
-                            var prevByte = ReadByte(hWnd, JMPAddr);
-                            if (prevByte != 0x75)
-                            {
-                                running = true;
-                                Console.WriteLine("File already patched or unknown battle.net.dll version.");                              
-                            }
-                            WriteProcessMemory(hWnd, new IntPtr(JMPAddr), JMP, 1, out BytesWritten);
-                            Console.WriteLine("After write: 0x{0:X2}", ReadByte(hWnd, JMPAddr));
-
-                            if (BytesWritten.ToInt32() < 1)
-                                Console.WriteLine("Failed to write to process.");
-                            else
-                            {
-                                Console.ForegroundColor = ConsoleColor.Green;
-                                Console.WriteLine("Diablo III succesfully patched!");
-                            }
-                            running = true;
-                            break;
                         }
-                        catch (Exception e)
-                        {
-                            Console.Write(e.Message);
-                        }
-                        finally
-                        {
-                            if (hWnd != IntPtr.Zero)
-                                CloseHandle(hWnd);
-                        }                        
+
+                        if (baseAddr == IntPtr.Zero)
+                            throw new Exception("Failed to locate battle.net.dll");
+
+                        var JMPAddr = baseAddr.ToInt32() + offset;
+                        var BytesWritten = IntPtr.Zero;
+                        byte[] JMP = new byte[] { 0xEB };
+                        Console.WriteLine("battle.net.dll address: 0x{0:X8}", baseAddr.ToInt32());
+                        var prevByte = ReadByte(hWnd, JMPAddr);
+                        if (prevByte != 0x75)
+                            throw new Exception(string.Format("File already patched or unknown battle.net.dll version. 0x{0:X2} != 0x75",prevByte));
+                        WriteProcessMemory(hWnd, new IntPtr(JMPAddr), JMP, 1, out BytesWritten);
+                        WriteProcessMemory(hWnd, new IntPtr(baseAddr.ToInt32() + 0x000BA836), JMP, 1, out BytesWritten);
+                        WriteProcessMemory(hWnd, new IntPtr(baseAddr.ToInt32() + 0x000BA863), JMP, 1, out BytesWritten);
+                        //Console.WriteLine("After write: 0x{0:X2}", ReadByte(hWnd, JMPAddr));
+
+                        if (BytesWritten.ToInt32() < 1)
+                            throw new Exception("Failed to write to process.");
+                        else
+                            Console.WriteLine("Program should now be patched.");
                     }
                 }
+                if (!foundD3)
+                    throw new Exception("Failed to located D3 process. Is D3 running?");
             }
-            Thread.Sleep(1500);
+            catch (Exception e)
+            {
+                Console.Write(e.Message);
+            }
+            finally
+            {
+                if (hWnd != IntPtr.Zero)
+                    CloseHandle(hWnd);
+            }
+            Console.ReadLine();
         }
 
         static byte ReadByte(IntPtr _handle, int offset)

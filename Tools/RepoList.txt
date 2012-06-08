@@ -5,3 +5,4 @@ https://github.com/angerwin/d3sharp
 https://github.com/Farmy/mooege
 https://github.com/mdz444/mooege
 https://github.com/wetwlly/mooege
+https://github.com/wesko/mooege
