@@ -141,6 +141,7 @@ namespace Bnet.Patcher
 
                             if (BytesWritten.ToInt32() < 1)
                             {
+                                running = true;
                                 Console.WriteLine("Failed to write to process.");
                             }
                             else
@@ -149,6 +150,7 @@ namespace Bnet.Patcher
                             }
                             if (BytesWritten.ToInt32() < 1)
                             {
+                                running = true;
                                 Console.WriteLine("Failed to write to process.");
                             }
                             else
