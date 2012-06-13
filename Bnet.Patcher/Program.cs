@@ -50,8 +50,14 @@ namespace Bnet.Patcher
         #endregion
 
         #region Build 1.0.2.9858
-        static Int32 offset = 0x000BA8A2;
-        static string version = "79fef7ae8e";
+        //static Int32 offset = 0x000BA8A2;
+        //static string version = "79fef7ae8e";
+        #endregion
+
+        #region Build 1.0.2.9991
+        static Int32 serverOffset = 0x000BC25C;
+        static Int32 challengeOffset = 0x000BC219;
+        static string version = "24e2d13e54";
         #endregion
 
         static void Main(string[] args)
@@ -108,23 +114,43 @@ namespace Bnet.Patcher
                             if (baseAddr == IntPtr.Zero)
                                 throw new Exception("Failed to locate battle.net.dll");
 
-                            var JMPAddr = baseAddr.ToInt32() + offset;
+                            var serverAddr = baseAddr.ToInt32() + serverOffset;
+                            var challengeAddr = baseAddr.ToInt32() + challengeOffset;
                             var BytesWritten = IntPtr.Zero;
                             byte[] JMP = new byte[] { 0xEB };
                             Console.WriteLine("battle.net.dll address: 0x{0:X8}", baseAddr.ToInt32());
-                            var prevByte = ReadByte(hWnd, JMPAddr);
+                            var prevByte = ReadByte(hWnd, serverAddr);
                             if (prevByte != 0x75)
                             {
                                 running = true;
                                 Console.WriteLine("File already patched or unknown battle.net.dll version.");
                             }
-                            WriteProcessMemory(hWnd, new IntPtr(JMPAddr), JMP, 1, out BytesWritten);
-                            WriteProcessMemory(hWnd, new IntPtr(baseAddr.ToInt32() + 0x000BA836), JMP, 1, out BytesWritten);
-                            WriteProcessMemory(hWnd, new IntPtr(baseAddr.ToInt32() + 0x000BA863), JMP, 1, out BytesWritten);
-                            Console.WriteLine("After write: 0x{0:X2}", ReadByte(hWnd, JMPAddr));
+                            else
+                            {
+                                prevByte = ReadByte(hWnd, challengeAddr);
+                            }
+                            if (prevByte != 0x74)
+                            {
+                                running = true;
+                                Console.WriteLine("File already patched or unknown battle.net.dll version.");
+                            }     
+                            else
+                            {
+                                WriteProcessMemory(hWnd, new IntPtr(serverAddr), JMP, 1, out BytesWritten);
+                            }
 
                             if (BytesWritten.ToInt32() < 1)
-                                throw new Exception("Failed to write to process.");
+                            {
+                                Console.WriteLine("Failed to write to process.");
+                            }
+                            else
+                            {
+                                WriteProcessMemory(hWnd, new IntPtr(challengeAddr), JMP, 1, out BytesWritten);
+                            }
+                            if (BytesWritten.ToInt32() < 1)
+                            {
+                                Console.WriteLine("Failed to write to process.");
+                            }
                             else
                             {
                                 Console.ForegroundColor = ConsoleColor.Green;
