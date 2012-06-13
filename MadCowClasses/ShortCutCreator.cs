@@ -34,12 +34,15 @@ namespace MadCow
 
             String desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             String lnk = desktop + "\\MadCow.lnk";
-            MyShortcut = (IWshRuntimeLibrary.IWshShortcut)WshShell.CreateShortcut(lnk);
-            MyShortcut.TargetPath = Application.ExecutablePath;
-            MyShortcut.WorkingDirectory = Program.programPath;
-            MyShortcut.Description = "MadCow";
-            MyShortcut.Save();
-
+            var LnkExist = System.IO.File.Exists(lnk);
+            if (!LnkExist)
+            {
+                MyShortcut = (IWshRuntimeLibrary.IWshShortcut)WshShell.CreateShortcut(lnk);
+                MyShortcut.TargetPath = Application.ExecutablePath;
+                MyShortcut.WorkingDirectory = Program.programPath;
+                MyShortcut.Description = "MadCow";
+                MyShortcut.Save();
+            }
         }
     }
 }
